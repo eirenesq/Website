@@ -1,0 +1,395 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text: rgb(54, 54, 54);
+  --text-soft: rgba(54, 54, 54, 0.72);
+  --line: rgba(54, 54, 54, 0.35);
+  --link: rgb(190, 54, 54);
+  --link-hover: rgb(54, 54, 200);
+  --gold: #8b6b00;
+  --gold-line: #c89c00;
+  --font-main: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  font-family: var(--font-main);
+  color: var(--text);
+}
+
+h1 {
+  color: var(--text);
+  font-size: 4em;
+  font-weight: 500;
+}
+
+h2 {
+  color: var(--text);
+  font-size: 2em;
+  font-weight: 400;
+}
+
+p {
+  color: var(--text);
+  font-size: 1.3em;
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+/* Main page shell */
+
+.adaptive {
+  position: relative;
+
+  width: 87vw;
+  max-width: 1200px;
+
+  padding-top: 3em;
+  padding-bottom: 4em;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content;
+  row-gap: 2em;
+}
+
+/* Top-right cat + buttons. Keep this block inside .adaptive, before .header. */
+
+.page-top {
+  position: absolute;
+  top: 3em;
+  right: 0;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin: 0;
+}
+
+.site-mark {
+  display: block;
+  width: 150px;
+
+  margin-bottom: 0.65em;
+  margin-right: 0.2em;
+
+  border-bottom: 0;
+}
+
+.site-mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  opacity: 0.88;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.site-mark:hover img {
+  opacity: 1;
+  transform: rotate(-360deg) scale(1);
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75em;
+
+  margin: 0;
+}
+
+.back_button,
+.language_button {
+  height: min-content;
+  width: min-content;
+
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-size: 1.1em;
+  border: var(--text) 1px solid;
+  color: var(--text);
+
+  padding: 3px 5px;
+  border-radius: 0;
+  transition: 0.5s;
+}
+
+.back_button:hover,
+.language_button:hover {
+  border: #0000007a 1px solid;
+  color: #0000007a;
+  border-radius: 10px;
+}
+
+/* Header */
+
+.header {
+  grid-column: 1;
+
+  display: grid;
+  grid-template-rows: min-content min-content;
+  row-gap: 1em;
+
+  /* Prevents intro text from running under the cat/buttons. */
+  padding-right: 180px;
+}
+
+.header h1 {
+  line-height: 1.05;
+}
+
+.content {
+  grid-column: 1;
+}
+
+.content h2 {
+  margin-top: 1.6em;
+  margin-bottom: 0.55em;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.text_alternative {
+  color: var(--text);
+  font-size: 1em;
+  font-weight: 250;
+}
+
+/* Notes and essay archive */
+
+.archive-note {
+  float: right;
+  width: 270px;
+  margin: 0.15em 0 1em 2em;
+  padding-top: 0.7em;
+}
+
+.archive-note p {
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 0.85em;
+}
+
+.inline-archive {
+  clear: both;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  padding: 0.9em 0;
+  margin: 1.6em 0 2.4em;
+}
+
+.inline-archive h3 {
+  color: var(--text);
+  font-size: 1.35em;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 0.6em;
+}
+
+.inline-archive h4 {
+  color: var(--text);
+  font-size: 1.05em;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-top: 0.8em;
+  margin-bottom: 0.35em;
+}
+
+.year-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2.5em;
+  row-gap: 1em;
+}
+
+.year-column {
+  min-width: 0;
+}
+
+.pdf-list {
+  margin-top: 0.7em;
+  padding-left: 1.1em;
+
+  color: var(--text);
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.pdf-list li {
+  margin-bottom: 0.4em;
+}
+
+.pdf-list a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.pdf-list a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+.lang-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5em;
+
+  padding: 0.12em 0.45em;
+  border: 1px solid rgba(54, 54, 54, 0.55);
+  border-radius: 999px;
+
+  font-size: 0.65em;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: var(--text);
+  user-select: none;
+  pointer-events: none;
+}
+
+.favorite-badge {
+  display: inline-block;
+  margin-left: 0.35em;
+
+  font-size: 0.95em;
+  color: var(--text);
+
+  user-select: none;
+}
+
+.favorite-tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5em;
+
+  padding: 0.12em 0.45em;
+
+  border: 1px solid var(--gold-line);
+  border-radius: 999px;
+
+  color: var(--gold);
+  font-size: 0.65em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.work-meta {
+  margin-top: 0.35em;
+  margin-bottom: 0.7em;
+  padding-left: 0.05em;
+}
+
+.work-tag {
+  display: block;
+  margin-top: 0.18em;
+
+  font-size: 0.68em;
+  font-weight: 300;
+  line-height: 1.3;
+
+  color: var(--text-soft);
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .adaptive {
+    width: 90vw;
+    max-width: 480px;
+    padding-top: 3em;
+  }
+
+  .page-top {
+    top: 3em;
+  }
+
+  .site-mark {
+    width: 80px;
+    margin-bottom: 0.55em;
+  }
+
+  .back_button,
+  .language_button {
+    font-size: 1em;
+  }
+
+  .header {
+    padding-right: 110px;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  .archive-note {
+    float: none;
+    width: auto;
+    margin: 1em 0 1.5em 0;
+  }
+
+  .year-columns {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .inline-archive h3 {
+    font-size: 1.25em;
+  }
+
+  .inline-archive h4 {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding-right: 0;
+    padding-top: 115px;
+  }
+
+  .page-top {
+    top: 2.4em;
+  }
+}
