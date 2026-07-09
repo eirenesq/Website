@@ -54,6 +54,35 @@ body {
   border-bottom-color: rgb(54, 54, 200);
 }
 
+/*.visit-box {*/
+/*  position: relative;*/
+/*  !*margin-top: 0.1em;*!*/
+/*  !*padding: 1em 1em;*!*/
+
+/*  border: 0.1px solid rgba(54, 54, 54, 0.35);*/
+/*  color: rgb(54, 54, 54);*/
+/*}*/
+
+.visit-number {
+  display: inline;
+
+  color: rgb(190, 54, 54);
+  font-size: 0.85em;
+  font-weight: 100;
+  line-height: 1;
+}
+
+.visit-caption {
+  display: inline;
+
+  margin-top: 0.3em;
+
+  color: rgba(54, 54, 54, 0.72);
+  font-size: 0.85em;
+  font-weight: 100;
+  line-height: 1;
+}
+
 .site-links p {
   padding-bottom: 0.8em;
 }

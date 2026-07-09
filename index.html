@@ -9,8 +9,8 @@
     <link rel="icon" type="image/jpg" href="favicon-48x48.jpg" sizes="48x48" />
     <link rel="stylesheet" href="index.css"/>
 </head>
-<div class="adaptive">
 
+<div class="adaptive">
   <div class="header">
   <h1>Hello!</h1>
 
@@ -24,7 +24,6 @@
 <!--      <p class="site-mark-caption">guardian of my website</p>-->
 
   </div>
-
   <div class="controls-row">
     <div class="contacts">
       <a href="https://t.me/imsaranskaia" target="_blank">Telegram</a> |
@@ -67,10 +66,36 @@
     <p><a href="photos.html">Photos of me (and others)</a></p>
     <p><a href="interests.html">Interests outside of academia</a></p>
   </nav>
+             <div class="visit-box">
+  <span id="monthly-visits" class="visit-number">counting...</span>
+  <span class="visit-caption">people have visited this month</span>
+</div>
 
 </div>
         </div>
     </div>
     <script src="index.js" defer></script>
+<script>
+  function loadMonthlyVisits() {
+    if (!window.goatcounter || !window.goatcounter.visit_count) {
+      setTimeout(loadMonthlyVisits, 100);
+      return;
+    }
+
+    window.goatcounter.visit_count({
+      append: "#monthly-visits",
+      path: "TOTAL",
+      start: "month",
+      no_branding: true,
+      attr: {
+        class: "goatcounter-number"
+      }
+    });
+  }
+
+  loadMonthlyVisits();
+</script>
+<script data-goatcounter="https://irinasaranskaia.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
