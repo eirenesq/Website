@@ -165,6 +165,50 @@ a:hover {
   transition: 0.07s;
 }
 
+.contacts a,
+.contacts .copy-email {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: rgb(200, 54, 54);
+  border: 0;
+  border-bottom: 1px solid rgb(200, 54, 54);
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: copy;
+}
+
+.contacts a:hover,
+.contacts .copy-email:hover {
+  color: rgb(54, 54, 200);
+  border-bottom-color: rgb(54, 54, 200);
+}
+
+.contacts.email-copied::after {
+  content: attr(data-copied);
+
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.45em);
+
+  width: max-content;
+  max-width: 240px;
+
+  /*padding: 0em 0.45em;*/
+
+  color: rgb(54, 54, 200);
+  /*background: white;*/
+  /*border: 2px solid rgb(200, 54, 54);*/
+
+  font-size: 0.7em;
+  font-weight: 300;
+  line-height: 1;
+  white-space: nowrap;
+
+  z-index: 30;
+}
+
 .header-controls {
   grid-column: 2;
   justify-self: end;

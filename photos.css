@@ -226,6 +226,10 @@ a:hover {
   margin-top: 2em;
 }
 
+.photo-grid.small {
+  max-width: 560px;
+}
+
 .photo-grid.two-columns {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2em;
@@ -263,32 +267,86 @@ a:hover {
 }
 
 /* Mobile */
+/* Unified mobile header/cat/buttons layout */
 
 @media (max-width: 768px) {
+  .adaptive,
   .photos {
+    position: relative;
     width: 90vw;
     max-width: 480px;
-    margin-top: 3em;
+    padding-top: 2.4em;
+  }
+
+  .page-top {
+    position: absolute;
+    top: 2.4em;
+    right: 0;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    margin: 0;
   }
 
   .site-mark {
-    width: 80px;
-    margin-bottom: 0.55em;
+    display: block;
+    width: 82px;
+
+    margin: 0 0 0.5em 0;
+    border-bottom: 0;
+
+    pointer-events: none;
+  }
+
+  .site-mark img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    opacity: 0.88;
+    pointer-events: none;
+  }
+
+  .site-mark:hover img {
+    opacity: 1;
+    transform: rotate(-360deg) scale(1);
+  }
+
+  .top-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.55em;
+
+    margin: 0;
   }
 
   .back_button,
   .language_button {
-    font-size: 1em;
+    font-size: 0.95em;
+    padding: 3px 5px;
   }
 
+  .header,
+  .title-bar,
+  .title-bar-centered,
   .title_div {
-    padding-right: 110px;
+    padding-top: 0;
+    padding-right: 105px;
     padding-left: 0;
   }
 
+  .title-bar,
+  .title-bar-centered {
+    display: block;
+  }
+
+  .title-bar-centered .title,
   .title {
     text-align: left;
-    margin-bottom: 2.2em;
   }
 
   h1 {
@@ -302,35 +360,24 @@ a:hover {
   p {
     font-size: 1.2em;
   }
-
-  .photo-section {
-    margin-bottom: 3em;
-  }
-
-  .photo-section-title {
-    font-size: 1.35em;
-  }
-
-  .photo-section-note {
-    font-size: 0.95em;
-  }
-
-  .photo-grid.two-columns {
-    grid-template-columns: 1fr;
-  }
-
-  .photo-item figcaption {
-    font-size: 0.9em;
-  }
 }
 
 @media (max-width: 480px) {
+  .header,
+  .title-bar,
+  .title-bar-centered,
   .title_div {
-    padding-right: 0;
-    padding-top: 115px;
+    padding-top: 0;
+    padding-right: 105px;
+    padding-left: 0;
   }
 
   .page-top {
-    top: 0;
+    top: 2.4em;
+    right: 0;
+  }
+
+  .site-mark {
+    width: 82px;
   }
 }

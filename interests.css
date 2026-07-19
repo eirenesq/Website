@@ -241,32 +241,86 @@ a:hover {
   margin-top: 1.4em;
 }
 
-@media (max-width: 900px) {
-  .interests-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+/* Unified mobile header/cat/buttons layout */
 
 @media (max-width: 768px) {
-  .adaptive {
+  .adaptive,
+  .photos {
+    position: relative;
     width: 90vw;
     max-width: 480px;
-    padding-top: 3em;
+    padding-top: 2.4em;
   }
 
-  .title-bar {
-    grid-template-columns: 1fr auto;
-    column-gap: 1em;
+  .page-top {
+    position: absolute;
+    top: 2.4em;
+    right: 0;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    margin: 0;
   }
 
   .site-mark {
-    width: 95px;
-    margin-bottom: 0.55em;
+    display: block;
+    width: 82px;
+
+    margin: 0 0 0.5em 0;
+    border-bottom: 0;
+
+    pointer-events: none;
+  }
+
+  .site-mark img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    opacity: 0.88;
+    pointer-events: none;
+  }
+
+  .site-mark:hover img {
+    opacity: 1;
+    transform: rotate(-360deg) scale(1);
+  }
+
+  .top-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.55em;
+
+    margin: 0;
   }
 
   .back_button,
   .language_button {
-    font-size: 1em;
+    font-size: 0.95em;
+    padding: 3px 5px;
+  }
+
+  .header,
+  .title-bar,
+  .title-bar-centered,
+  .title_div {
+    padding-top: 0;
+    padding-right: 105px;
+    padding-left: 0;
+  }
+
+  .title-bar,
+  .title-bar-centered {
+    display: block;
+  }
+
+  .title-bar-centered .title,
+  .title {
+    text-align: left;
   }
 
   h1 {
@@ -277,34 +331,27 @@ a:hover {
     font-size: 1.5em;
   }
 
-  h3 {
-    font-size: 1.2em;
-  }
-
   p {
     font-size: 1.2em;
-  }
-
-  .interests-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .interest-card {
-    min-height: auto;
   }
 }
 
 @media (max-width: 480px) {
-  .title-bar {
-    grid-template-columns: 1fr;
-    row-gap: 1em;
+  .header,
+  .title-bar,
+  .title-bar-centered,
+  .title_div {
+    padding-top: 0;
+    padding-right: 105px;
+    padding-left: 0;
   }
 
   .page-top {
-    align-items: flex-start;
+    top: 2.4em;
+    right: 0;
   }
 
-  .top-buttons {
-    justify-content: flex-start;
+  .site-mark {
+    width: 82px;
   }
 }
