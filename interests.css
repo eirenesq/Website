@@ -241,22 +241,38 @@ a:hover {
   margin-top: 1.4em;
 }
 
-/* Unified mobile header/cat/buttons layout */
+@media (max-width: 1100px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 @media (max-width: 768px) {
-  .adaptive,
-  .photos {
-    position: relative;
-    width: 90vw;
-    max-width: 480px;
-    padding-top: 2.4em;
+  .adaptive {
+    width: min(calc(100vw - 32px), 560px);
+    max-width: none;
+
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+
+    row-gap: 1.4rem;
+  }
+
+  .header {
+    row-gap: 0.9rem;
+  }
+
+  .title-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 0.8rem;
+    align-items: start;
+
+    padding: 0;
   }
 
   .page-top {
-    position: absolute;
-    top: 2.4em;
-    right: 0;
-    z-index: 5;
+    position: static;
 
     display: flex;
     flex-direction: column;
@@ -267,9 +283,9 @@ a:hover {
 
   .site-mark {
     display: block;
-    width: 82px;
+    width: clamp(72px, 20vw, 92px);
 
-    margin: 0 0 0.5em 0;
+    margin: 0 0 0.45rem 0;
     border-bottom: 0;
 
     pointer-events: none;
@@ -293,65 +309,131 @@ a:hover {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 0.55em;
+    gap: 0.45rem;
 
     margin: 0;
   }
 
   .back_button,
   .language_button {
-    font-size: 0.95em;
-    padding: 3px 5px;
-  }
-
-  .header,
-  .title-bar,
-  .title-bar-centered,
-  .title_div {
-    padding-top: 0;
-    padding-right: 105px;
-    padding-left: 0;
-  }
-
-  .title-bar,
-  .title-bar-centered {
-    display: block;
-  }
-
-  .title-bar-centered .title,
-  .title {
-    text-align: left;
+    font-size: 0.9rem;
+    padding: 2px 5px;
   }
 
   h1 {
-    font-size: 3em;
+    font-size: clamp(2.15rem, 10.5vw, 3rem);
+    line-height: 1.05;
   }
 
   h2 {
-    font-size: 1.5em;
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1rem;
+    line-height: 1.38;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .intro {
+    max-width: none;
+  }
+
+  .profile-section {
+    margin: 1.4rem 0;
+    padding: 0.9rem 0;
+  }
+
+  .profile-section h2 {
+    margin-bottom: 0.55rem;
+  }
+
+  .profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .profile-link {
+    font-size: 0.9rem;
+    min-height: 1.75rem;
+    padding: 0.15rem 0.55rem;
+  }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+
+    width: 100%;
+  }
+
+  .interest-card {
+    width: 100%;
+    min-height: 0;
+
+    padding: 1rem;
+  }
+
+  .interest-card p {
+    font-size: 0.98rem;
+    line-height: 1.36;
+  }
+
+  .interest-marker {
+    font-size: 0.66rem;
+    margin-bottom: 0.45rem;
   }
 }
 
-@media (max-width: 480px) {
-  .header,
-  .title-bar,
-  .title-bar-centered,
-  .title_div {
-    padding-top: 0;
-    padding-right: 105px;
-    padding-left: 0;
+@media (max-width: 430px) {
+  .adaptive {
+    width: min(calc(100vw - 24px), 430px);
   }
 
-  .page-top {
-    top: 2.4em;
-    right: 0;
+  .title-bar {
+    column-gap: 0.6rem;
   }
 
   .site-mark {
-    width: 82px;
+    width: 72px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 9.8vw, 2.65rem);
+  }
+
+  p {
+    font-size: 0.96rem;
+  }
+
+  .interest-card {
+    padding: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .title-bar {
+    grid-template-columns: 1fr;
+    row-gap: 0.8rem;
+  }
+
+  .page-top {
+    align-items: flex-start;
+  }
+
+  .top-buttons {
+    justify-content: flex-start;
+  }
+
+  .site-mark {
+    width: 70px;
   }
 }
