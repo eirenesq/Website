@@ -27,6 +27,7 @@ h1 {
   color: var(--text);
   font-size: 4em;
   font-weight: 500;
+  line-height: 1.05;
 }
 
 h2 {
@@ -59,11 +60,15 @@ a:hover {
   border-bottom-color: var(--link-hover);
 }
 
+/* Page shell */
+
 .adaptive {
   width: 87vw;
   max-width: 1200px;
+
   padding-top: 3em;
   padding-bottom: 4em;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content;
@@ -72,6 +77,7 @@ a:hover {
 
 .header {
   grid-column: 1;
+
   display: grid;
   grid-template-rows: min-content min-content;
   row-gap: 1em;
@@ -79,14 +85,12 @@ a:hover {
 
 .title-bar {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 2em;
   align-items: start;
 }
 
-.title-bar h1 {
-  line-height: 1.05;
-}
+/* Cat + buttons */
 
 .page-top {
   display: flex;
@@ -98,16 +102,21 @@ a:hover {
 .site-mark {
   display: block;
   width: 150px;
+
   margin-bottom: 0.65em;
   margin-right: 0.2em;
+
   border-bottom: 0;
+  pointer-events: none;
 }
 
 .site-mark img {
   display: block;
   width: 100%;
   height: auto;
+
   opacity: 0.88;
+  pointer-events: none;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -121,6 +130,7 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   gap: 0.75em;
+
   margin: 0;
 }
 
@@ -128,13 +138,16 @@ a:hover {
 .language_button {
   height: min-content;
   width: min-content;
+
   text-align: center;
   display: block;
   text-decoration: none;
   white-space: nowrap;
+
   font-size: 1.1em;
   border: var(--text) 1px solid;
   color: var(--text);
+
   padding: 3px 5px;
   border-radius: 0;
   transition: 0.5s;
@@ -147,6 +160,8 @@ a:hover {
   border-radius: 10px;
 }
 
+/* Content */
+
 .content {
   grid-column: 1;
 }
@@ -158,6 +173,7 @@ a:hover {
 .profile-section {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+
   padding: 1.1em 0;
   margin: 2.2em 0;
 }
@@ -176,15 +192,19 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-height: 2em;
   padding: 0.18em 0.7em;
+
   border: 1px solid rgba(54, 54, 54, 0.32);
   border-radius: 999px;
+
   color: var(--text);
   font-size: 1.05em;
   font-weight: 300;
   line-height: 1.2;
   text-decoration: none;
+
   transition: 0.25s;
 }
 
@@ -194,16 +214,23 @@ a:hover {
   transform: translateY(-1px);
 }
 
+/* Interest cards */
+
 .interests-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 1.3em;
   row-gap: 1.3em;
+
+  align-items: start;
 }
 
 .interest-card {
+  align-self: start;
+
   min-height: 12em;
   padding: 1em 1em 1.05em;
+
   border: 1px solid var(--line);
   background: rgba(54, 54, 54, 0.015);
 }
@@ -219,13 +246,17 @@ a:hover {
 
 .interest-marker {
   display: inline-block;
+
   margin-bottom: 0.75em;
   padding: 0.12em 0.45em;
+
   border: 1px solid rgba(54, 54, 54, 0.32);
   border-radius: 999px;
+
   color: var(--text-soft);
   font-size: 0.72em;
   font-weight: 400;
+  line-height: 1.2;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -235,11 +266,88 @@ a:hover {
   border-color: var(--gold-line);
 }
 
-.small-note {
-  color: var(--text-soft);
-  font-size: 1em;
-  margin-top: 1.4em;
+/* Liza mini-note */
+
+.interest-extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 0.45em;
+  margin-top: 0.2em;
 }
+
+.cat-note-button {
+  display: inline-block;
+
+  margin-bottom: 0.75em;
+  padding: 0.12em 0.45em;
+
+  border: 1px solid rgba(190, 54, 54, 0.45);
+  border-radius: 999px;
+  background: transparent;
+
+  color: var(--link);
+  font-family: inherit;
+  font-size: 0.72em;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.cat-note-button:hover {
+  color: var(--link-hover);
+  border-color: rgba(54, 54, 200, 0.55);
+  transform: translateY(-1px);
+}
+
+.cat-note {
+  margin-top: 0.8em;
+  padding-top: 0.9em;
+
+  /*border-top: 1px solid rgba(54, 54, 54, 0.22);*/
+  text-align: center;
+}
+
+.cat-note img {
+  display: block;
+
+  width: 100%;
+  max-width: 230px;
+  height: auto;
+
+  margin: 0 auto 0.75em auto;
+
+  border-radius: 2px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cat-note p {
+  max-width: 320px;
+  margin: 0 auto;
+
+  color: rgba(54, 54, 54, 0.78);
+  font-size: 1em;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.interest-card.favourite .interest-extra {
+  margin-top: 1.35em;
+  justify-content: flex-start;
+}
+
+.interest-card.favourite .interest-marker,
+.interest-card.favourite .cat-note-button {
+  margin-bottom: 0;
+}
+
+/* Responsive layout */
 
 @media (max-width: 1100px) {
   .interests-grid {
@@ -263,12 +371,8 @@ a:hover {
   }
 
   .title-bar {
-    display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     column-gap: 0.8rem;
-    align-items: start;
-
-    padding: 0;
   }
 
   .page-top {
@@ -282,36 +386,12 @@ a:hover {
   }
 
   .site-mark {
-    display: block;
     width: clamp(72px, 20vw, 92px);
-
     margin: 0 0 0.45rem 0;
-    border-bottom: 0;
-
-    pointer-events: none;
-  }
-
-  .site-mark img {
-    display: block;
-    width: 100%;
-    height: auto;
-
-    opacity: 0.88;
-    pointer-events: none;
-  }
-
-  .site-mark:hover img {
-    opacity: 1;
-    transform: rotate(-360deg) scale(1);
   }
 
   .top-buttons {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     gap: 0.45rem;
-
-    margin: 0;
   }
 
   .back_button,
@@ -322,7 +402,6 @@ a:hover {
 
   h1 {
     font-size: clamp(2.15rem, 10.5vw, 3rem);
-    line-height: 1.05;
   }
 
   h2 {
@@ -356,19 +435,17 @@ a:hover {
   }
 
   .profile-links {
-    display: flex;
-    flex-wrap: wrap;
     gap: 0.45rem;
   }
 
   .profile-link {
-    font-size: 0.9rem;
     min-height: 1.75rem;
     padding: 0.15rem 0.55rem;
+
+    font-size: 0.9rem;
   }
 
   .interests-grid {
-    display: grid;
     grid-template-columns: 1fr !important;
     gap: 1rem;
 
@@ -387,9 +464,14 @@ a:hover {
     line-height: 1.36;
   }
 
-  .interest-marker {
+  .interest-marker,
+  .cat-note-button {
     font-size: 0.66rem;
     margin-bottom: 0.45rem;
+  }
+
+  .cat-note img {
+    max-width: 220px;
   }
 }
 

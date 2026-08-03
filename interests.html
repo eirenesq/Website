@@ -15,7 +15,7 @@
     <div class="header">
 
 <div class="title-bar">
-  <h1>Interests.</h1>
+  <h1>Interests outside of academia.</h1>
 
   <div class="page-top">
     <div class="site-mark" aria-hidden="true">
@@ -84,10 +84,40 @@
         <article class="interest-card favourite">
           <h3>Eurovision & cats</h3>
           <p>I love cats. I also love watching Eurovision. These are not hobbies but are structural components of my personality.</p>
-                    <br><span class="interest-marker">important</span>
+
+<div class="interest-extra">
+  <span class="interest-marker">important</span>
+
+  <button type="button"
+          class="cat-note-button"
+          data-cat-toggle
+          aria-expanded="false">
+    meet Liza
+  </button>
+</div>
+
+<div class="cat-note" hidden>
+  <img src="images/liza.JPG" alt="Liza the cat">
+  <p>This is Liza. She turned 19 this year.</p>
+</div>
+
         </article>
       </section>
     </main>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-cat-toggle]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".interest-card");
+          const note = card.querySelector(".cat-note");
+          const isOpen = !note.hidden;
+
+          note.hidden = isOpen;
+          button.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -77,10 +77,39 @@
         <article class="interest-card favourite">
           <h3>Eurovision & chats</h3>
           <p>J’aime les chats. J’aime aussi regarder l’Eurovision. Ce ne sont pas des passe-temps, mais des composantes structurelles de ma personnalité.</p>
-                    <br><span class="interest-marker">important</span>
+
+<div class="interest-extra">
+  <span class="interest-marker">important</span>
+
+  <button type="button"
+          class="cat-note-button"
+          data-cat-toggle
+          aria-expanded="false">
+    voici Liza
+  </button>
+</div>
+
+<div class="cat-note" hidden>
+  <img src="images/liza.JPG" alt="Liza le chat">
+  <p>Voici Liza. Elle a eu 19 ans cette année.</p>
+</div>
         </article>
       </section>
     </main>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-cat-toggle]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".interest-card");
+          const note = card.querySelector(".cat-note");
+          const isOpen = !note.hidden;
+
+          note.hidden = isOpen;
+          button.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+    });
+  </script>
 </body>
 </html>
