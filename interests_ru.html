@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Irina Saranskaia</title>
+  <link rel="icon" type="image/jpg" href="favicon-16x16.jpg" sizes="16x16" />
+  <link rel="icon" type="image/jpg" href="favicon-32x32.jpg" sizes="32x32" />
+  <link rel="icon" type="image/jpg" href="favicon-48x48.jpg" sizes="48x48" />
+  <link rel="stylesheet" href="interests.css" />
+</head>
+<body>
+  <div class="adaptive">
+    <div class="header">
+
+<div class="title-bar">
+  <h1>Интересы вне академии.</h1>
+
+  <div class="page-top">
+    <div class="site-mark" aria-hidden="true">
+      <img src="images/cat_transparent.png" alt="">
+    </div>
+
+    <nav class="top-buttons">
+      <a class="back_button" href="index_ru.html">Назад</a>
+          <a href="interests_fr.html" class="language_button">Fr</a>
+      <a href="interests.html" class="language_button">En</a>
+    </nav>
+  </div>
+</div>
+
+<p>
+Хоть меня и вдохновляет проведение исследований, важно иметь и другие интересы.
+
+</p>
+
+<p class="intro">
+У меня счастливая жизнь, у меня есть возможности попробовать много вещей,
+самостоятельно и в компании друзей и семьи.
+</p>
+    </div>
+
+    <main class="content">
+      <section class="profile-section">
+        <h2>В других местах.</h2>
+        <div class="profile-links">
+          <a class="profile-link" href="https://www.goodreads.com/user/show/148943662-eirene-saar" target="_blank">goodreads</a>
+          <a class="profile-link" href="https://letterboxd.com/TFEP" target="_blank">letterboxd</a>
+          <a class="profile-link" href="https://en.myshows.me/TFEP" target="_blank">myshows</a>
+        </div>
+      </section>
+
+      <section class="interests-grid">
+        <article class="interest-card">
+          <h3>Книги</h3>
+          <p>Чтение — самая стабильная часть моей жизни: художественная литература, книги про искусство, здоровье,
+теоретические и любые книги, которые могут попасться мне в руки.</p>
+          <div class="tag-row">
+          <span class="interest-marker">Собачье сердце</span>
+          <span class="interest-marker">Маленький принц</span>
+            </div>
+        </article>
+        <article class="interest-card">
+          <h3>(Анимационные) Фильмы</h3>
+          <p>Фильмы хороши.
+            Кому не нравится посмотреть хороший фильм с друзьями или после долгого дня?
+            Хотя мультфильмы всё же лучше.</p>
+           <div class="tag-row">
+          <span class="interest-marker">Служанка</span>
+          <span class="interest-marker">Мегамозг</span>
+           </div>
+        </article>
+        <article class="interest-card">
+          <h3>(Анимационные) Сериалы</h3>
+          <p>Длинный формат повествования позволяет лучше узнать персонажей, и мне это очень нравится. </p>
+                    <div class="tag-row">
+                      <span class="interest-marker">Кон БоДжек</span>
+          <span class="interest-marker">Интервью с вампиром</span>
+                    </div>
+        </article>
+        <article class="interest-card">
+          <h3>Путешествия</h3>
+          <p>Пока я мало путешествовала, но мне нравится пробовать кофе в разных странах.</p>
+                    <div class="tag-row">
+          <span class="interest-marker">фреддо флэт уайт</span>
+                    </div>
+        </article>
+        <article class="interest-card">
+          <h3>Иностранные языки</h3>
+          <p>Языки даются мне легко, я изучила немало из них, но теперь у меня есть два любимых. </p>
+                  <div class="tag-row">
+                    <span class="interest-marker">французский</span>
+                    <span class="interest-marker">португальский</span>
+                  </div>
+        </article>
+        <article class="interest-card favourite">
+          <h3>Евровидение & кошки</h3>
+          <p>Я люблю кошек. А ещё я люблю смотреть Евровидение. Это не хобби, а структурные составляющие моей личности.</p>
+
+<div class="interest-extra">
+  <span class="interest-marker">важное</span>
+
+  <button type="button"
+          class="cat-note-button"
+          data-cat-toggle
+          aria-expanded="false">
+    встречайте Лизу
+  </button>
+</div>
+
+<div class="cat-note" hidden>
+  <img src="images/liza.JPG" alt="Liza the cat">
+  <p>Это Лиза. В этом году ей исполнилось 19 лет.</p>
+</div>
+
+        </article>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-cat-toggle]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".interest-card");
+          const note = card.querySelector(".cat-note");
+          const isOpen = !note.hidden;
+
+          note.hidden = isOpen;
+          button.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
